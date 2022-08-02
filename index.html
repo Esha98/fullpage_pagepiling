@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fullpage Javascript</title>
+
+    <!-- Styling Files -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/fullpage.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/pagePiling.js/1.5.6/jquery.pagepiling.css"
+    />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#pagepiling").pagepiling({
+          anchors: ["video", "page2", "page3"],
+          navigation: {
+            position: "right",
+            tooltips: ["Video", "First Page", "Secound Page"],
+          },
+          afterRender: function () {
+            //playing the video
+            $("video").get(0).play();
+          },
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <ul id="menu">
+      <li>
+        <a href="#video">Page 1</a>
+      </li>
+      <li data-menuanchor="page2"><a href="#page2">Page 2</a></li>
+      <li data-menuanchor="page3"><a href="#page3">Page 3</a></li>
+    </ul>
+
+    <div id="pagepiling">
+      <div class="section">
+        <video autoplay loop muted id="myVideo">
+          <source src="imgs/flowers.mp4" type="video/mp4" />
+        </video>
+        <div class="layer">
+          <h1>pagePiling.js video</h1>
+        </div>
+      </div>
+      <div class="section s1">
+        <h1 id="firstPage">FirstPage</h1>
+      </div>
+
+      <div class="section s2">
+        <h1 id="secondPage">SecondPage</h1>
+      </div>
+    </div>
+
+    <!-- Script Files -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/fullpage.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/pagePiling.js/1.5.6/jquery.pagepiling.min.js"
+    ></script>
+  </body>
+</html>
